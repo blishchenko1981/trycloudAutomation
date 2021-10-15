@@ -25,9 +25,9 @@ public class LoginPage {
 Driver.getDriver().get(ConfigReader.read("trycloud_url"));
     }
 
-    public void login(String username,String password){
+    public void login(String username){
         this.username.sendKeys(ConfigReader.read(username));
-        this.password.sendKeys(ConfigReader.read(password));
+        this.password.sendKeys(ConfigReader.read("password"));
         this.login.click();
     }
 }
