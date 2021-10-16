@@ -17,8 +17,6 @@ public class LoginPage {
     @FindBy(id = "submit-form")
     public WebElement login;
 
-    @FindBy(xpath ="//div/h1[normalize-space(.)='Trycloud Dashboard']" )
-public WebElement dashboard;
 
     @FindBy(xpath = "//p[normalize-space(.)='Wrong username or password.']")
     public WebElement errorMsg;
