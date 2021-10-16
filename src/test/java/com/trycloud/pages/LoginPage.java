@@ -9,13 +9,17 @@ import org.openqa.selenium.support.PageFactory;
 public class LoginPage {
 
     @FindBy(id = "user")
-    private WebElement username;
+   public WebElement username;
 
     @FindBy(id = "password")
-    private WebElement password;
+    public WebElement password;
 
     @FindBy(id = "submit-form")
-    private WebElement login;
+    public WebElement login;
+
+
+    @FindBy(xpath = "//p[normalize-space(.)='Wrong username or password.']")
+    public WebElement errorMsg;
 
     public LoginPage(){
         PageFactory.initElements(Driver.getDriver(), this);
@@ -25,9 +29,11 @@ public class LoginPage {
 Driver.getDriver().get(ConfigReader.read("trycloud_url"));
     }
 
-    public void login(String username){
-        this.username.sendKeys(ConfigReader.read(username));
-        this.password.sendKeys(ConfigReader.read("password"));
+    public void login(String username,String password){
+        this.username.sendKeys(username);
+        this.password.sendKeys(password);
         this.login.click();
     }
+
+
 }
