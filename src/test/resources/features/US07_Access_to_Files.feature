@@ -17,7 +17,7 @@ Feature: Access to Files module
 
     When  user use username "<username>" and password "<password>"
     And   user click login button
-    When  Click action-icon from any file on the page
+    When  Clicks action-icon from any file on the page
     And   Choose “delete files” option
     Then  Verify the deleted file is displayed on the page.
 
