@@ -16,7 +16,7 @@ public class FileModuleStepDefs {
     CommonArea commonArea = new CommonArea();
     ModulesPage modulesPage = new ModulesPage();
     Faker faker = new Faker();
-    String message = faker.gameOfThrones().quote();
+    String message = faker.gameOfThrones().house();
 
     @When("user click the {string} module on the page")
     public void userClickTheModuleOnThePage(String modulesName) {
@@ -50,6 +50,8 @@ public class FileModuleStepDefs {
 
     @Then("Verify the comment is displayed in the comment section.")
     public void verify_the_comment_is_displayed_in_the_comment_section() {
+        System.out.println("Expected message = " + message);
+        System.out.println("Actual message"+modulesPage.messageIsDisplayed(message));
 
         assertTrue(modulesPage.messageIsDisplayed(message));
     }

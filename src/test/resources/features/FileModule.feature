@@ -1,3 +1,4 @@
+@wip
 Feature: As a user, I should be able to access to Files module
 
 
@@ -22,8 +23,9 @@ Feature: As a user, I should be able to access to Files module
     Examples:
       | username | password    |
       | user7    | Userpass123 |
-      | user34   | Userpass123 |
-      | user99   | Userpass123 |
+      | user37   | Userpass123 |
+      | user67   | Userpass123 |
+      | user97   | Userpass123 |
 #Story: As a user, I should be able to access to Files module.
 #AC #1 - verify users can write comments to files/folders.
 #1. Login as a user
