@@ -8,28 +8,28 @@ import org.openqa.selenium.support.PageFactory;
 public class CommonArea {
 
     @FindBy(xpath = "(//li[@data-id='dashboard'])[1]")
-    WebElement dashboardModule;
+    public WebElement dashboardModule;
 
     @FindBy(xpath = "(//a[@aria-label = 'Files'])[1]")
-    WebElement filesModule;
+    public WebElement filesModule;
 
     @FindBy(xpath = "(//a[@aria-label='Photos'])[1]")
-    WebElement photosModule;
+    public WebElement photosModule;
 
     @FindBy(xpath = "(//a[@aria-label='Activity'])[1]")
-    WebElement activityModule;
+    public WebElement activityModule;
 
     @FindBy(xpath = "(//a[@aria-label='Talk'])[1]")
-    WebElement talkModule;
+    public WebElement talkModule;
 
     @FindBy(xpath = "(//a[@aria-label='Contacts'])[1]")
-    WebElement contactsModule;
+    public WebElement contactsModule;
 
     @FindBy(xpath = "(//a[@aria-label='Calendar'])[1]")
-    WebElement calendarModule;
+    public WebElement calendarModule;
 
     @FindBy(xpath = "(//a[@aria-label='Deck'])[1]")
-    WebElement deckModule;
+    public WebElement deckModule;
 
     public CommonArea(){
         PageFactory.initElements(Driver.getDriver(), this);
