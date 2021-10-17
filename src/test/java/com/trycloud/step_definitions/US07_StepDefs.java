@@ -16,7 +16,7 @@ public class US07_StepDefs {
     FilesPage filesPage = new FilesPage();
     public static String expectedFileText = "dfdfd";
 
-    @When("Click action-icon from any file on the page")
+    @When("Clicks action-icon from any file on the page")
     public void click_action_icon_from_any_file_on_the_page() {
         BrowserUtil.waitFor(3);
 

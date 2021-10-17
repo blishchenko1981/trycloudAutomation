@@ -32,7 +32,7 @@ public class CommonArea {
     @FindBy(xpath = "(//a[@aria-label='Deck'])[1]")
     public WebElement deckModule;
 
-    public CommonArea(){
+    public CommonArea() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
