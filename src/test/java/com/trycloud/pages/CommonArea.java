@@ -32,6 +32,15 @@ public class CommonArea {
     @FindBy(xpath = "(//a[@aria-label='Deck'])[1]")
     public WebElement deckModule;
 
+    @FindBy(xpath = "//span[@aria-label = 'Magnify icon']")
+    public WebElement magnifierIcon;
+
+    @FindBy(xpath = "//input [@type = 'search']")
+    public WebElement searchBox;
+
+    @FindBy(xpath = "//span/h3[@title]")
+    public WebElement searchResult;
+
     public CommonArea() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
