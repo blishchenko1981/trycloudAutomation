@@ -1,11 +1,14 @@
 package com.trycloud.pages;
 
+import com.trycloud.step_definitions.US10_StepDefs;
 import com.trycloud.utilities.BrowserUtil;
 import com.trycloud.utilities.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
+import static org.junit.Assert.assertTrue;
 
 public class FilesPage {
 
@@ -65,6 +68,48 @@ public class FilesPage {
         BrowserUtil.waitFor(3);
         nevidimayaKnopka.sendKeys(path);
         BrowserUtil.waitFor(5);
+    }
+
+    public void verifyAllBtnsUnderSettings(){
+        try {
+            showRichWorkspaces.click();
+            BrowserUtil.waitFor(2);
+            assertTrue(Driver.getDriver().findElement(By.xpath("//div[@id = 'rich-workspace']")).isDisplayed());
+            showRichWorkspaces.click();
+        } catch (Exception e) {
+
+            System.out.println("Button was clicked already ");
+            e.printStackTrace();
+
+        }
+
+
+        try {
+            showRecomendations.click();
+            BrowserUtil.waitFor(2);
+            assertTrue(Driver.getDriver().findElement(By.xpath("//div[@data-v-258784da]")).isDisplayed());
+            showRecomendations.click();
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Button was clicked already ");
+
+        }
+
+        showHidden.click();
+        assertTrue(showHidden.isDisplayed());
+
+    }
+
+    public void verifyStorageUsageIncreased(){
+        String usedAfter = dataUsage.getText();
+        usedAfter = usedAfter.substring(0, usedAfter.indexOf(" "));
+        US10_StepDefs.usedBefore = US10_StepDefs.usedBefore.substring(0, US10_StepDefs.usedBefore.indexOf(" "));
+        System.out.println("usedBefore = " + US10_StepDefs.usedBefore);
+        System.out.println("usedAfter = " + usedAfter);
+        BrowserUtil.waitFor(1);
+        double before = Double.parseDouble(US10_StepDefs.usedBefore);
+        double after = Double.parseDouble(usedAfter);
+        assertTrue(after>before);
     }
 
 }

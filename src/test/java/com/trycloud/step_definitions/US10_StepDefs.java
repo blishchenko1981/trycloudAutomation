@@ -16,7 +16,7 @@ public class US10_StepDefs {
 
     CommonArea commonArea = new CommonArea();
     FilesPage filesPage = new FilesPage();
-    String usedBefore;
+    public static  String usedBefore;
 
 
     @When("Click Settings on the left bottom corner")
@@ -29,32 +29,7 @@ public class US10_StepDefs {
     @Then("Verify user can click any buttons.")
     public void verify_user_can_click_any_buttons() {
         BrowserUtil.waitFor(2);
-        try {
-            filesPage.showRichWorkspaces.click();
-            BrowserUtil.waitFor(2);
-            assertTrue(Driver.getDriver().findElement(By.xpath("//div[@id = 'rich-workspace']")).isDisplayed());
-            filesPage.showRichWorkspaces.click();
-        } catch (Exception e) {
-
-            System.out.println("Button was clicked already ");
-            e.printStackTrace();
-
-        }
-
-
-        try {
-            filesPage.showRecomendations.click();
-            BrowserUtil.waitFor(2);
-            assertTrue(Driver.getDriver().findElement(By.xpath("//div[@data-v-258784da]")).isDisplayed());
-            filesPage.showRecomendations.click();
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("Button was clicked already ");
-
-        }
-
-        filesPage.showHidden.click();
-        assertTrue(filesPage.showHidden.isDisplayed());
+        filesPage.verifyAllBtnsUnderSettings();
 
     }
 
@@ -65,12 +40,11 @@ public class US10_StepDefs {
         usedBefore = filesPage.dataUsage.getText();
     }
 
-    @When("Upload a file")
-    public void uploadAFile() {
-
-        filesPage.uploadFile("C:\\Users\\Vitalii\\Desktop\\Zoom Meeting 9_20_2021 2_58_22 PM.png");
-
+    @When("Upload a file {string}")
+    public void uploadAFile(String pathOfFile) {
+        filesPage.uploadFile(pathOfFile);
     }
+
 
     @And("Refresh the page")
     public void refreshThePage() {
@@ -83,19 +57,14 @@ public class US10_StepDefs {
     @Then("Verify the storage usage is increased.")
     public void verifyTheStorageUsageIsIncreased() {
 
-        String usedAfter = filesPage.dataUsage.getText();
-        usedAfter = usedAfter.substring(0, usedAfter.indexOf(" "));
-        usedBefore = usedBefore.substring(0, usedBefore.indexOf(" "));
-        System.out.println("usedBefore = " + usedBefore);
-        System.out.println("usedAfter = " + usedAfter);
-        BrowserUtil.waitFor(1);
-        double before = Double.parseDouble(usedBefore);
-        double after = Double.parseDouble(usedAfter);
-        assertTrue(after>before);
+        filesPage.verifyStorageUsageIncreased();
+
         BrowserUtil.waitFor(3);
         filesPage.deleteFile("Zoom Meeting 9_20_2021 2_58_22 PM.png");
         BrowserUtil.waitFor(2);
 
 
     }
+
+
 }
