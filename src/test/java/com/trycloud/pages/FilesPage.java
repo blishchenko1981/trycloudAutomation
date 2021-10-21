@@ -1,5 +1,6 @@
 package com.trycloud.pages;
 
+import com.trycloud.utilities.BrowserUtil;
 import com.trycloud.utilities.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -12,16 +13,8 @@ public class FilesPage {
     public WebElement action_icon;
 
 
-
     @FindBy(xpath = "//span[.='Delete file']")
     public WebElement deleteFile;
-
-    public void deleteFile(String nameOfFile) {
-
-        Driver.getDriver().findElement(By.xpath("//tr[@data-file='"+ nameOfFile +"']//a[@class='action action-menu permanent']")).click();
-        deleteFile.click();
-
-    }
 
 
     @FindBy(xpath = "//a[.='Deleted files']")
@@ -55,7 +48,23 @@ public class FilesPage {
     public WebElement showHidden;
 
 
-    public FilesPage(){
+    public FilesPage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
+
+
+    public void deleteFile(String nameOfFile) {
+
+        Driver.getDriver().findElement(By.xpath("//tr[@data-file='" + nameOfFile + "']//a[@class='action action-menu permanent']")).click();
+        deleteFile.click();
+
+    }
+
+    public void uploadFile(String path){
+        addFile.click();
+        BrowserUtil.waitFor(3);
+        nevidimayaKnopka.sendKeys(path);
+        BrowserUtil.waitFor(5);
+    }
+
 }

@@ -53,10 +53,8 @@ public class US10_StepDefs {
 
         }
 
-
-            filesPage.showHidden.click();
-            assertTrue(filesPage.showHidden.isDisplayed());
-
+        filesPage.showHidden.click();
+        assertTrue(filesPage.showHidden.isDisplayed());
 
     }
 
@@ -65,22 +63,12 @@ public class US10_StepDefs {
 
         commonArea.filesModule.click();
         usedBefore = filesPage.dataUsage.getText();
-        System.out.println("UsedBefore = " + usedBefore);
     }
 
     @When("Upload a file")
     public void uploadAFile() {
-        filesPage.addFile.click();
 
-        BrowserUtil.waitFor(3);
-        filesPage.nevidimayaKnopka.sendKeys("C:\\Users\\Vitalii\\Desktop\\Zoom Meeting 9_20_2021 2_58_22 PM.png");
-
-        BrowserUtil.waitFor(5);
-
-        //   filesPage.addFile.click();
-        // filesPage.uploadFile.click();
-        //     Runtime.getRuntime().exec("C:/Users/Vitalii/Desktop/FileUploadScript.exe");
-
+        filesPage.uploadFile("C:\\Users\\Vitalii\\Desktop\\Zoom Meeting 9_20_2021 2_58_22 PM.png");
 
     }
 
@@ -96,15 +84,17 @@ public class US10_StepDefs {
     public void verifyTheStorageUsageIsIncreased() {
 
         String usedAfter = filesPage.dataUsage.getText();
+        usedAfter = usedAfter.substring(0, usedAfter.indexOf(" "));
+        usedBefore = usedBefore.substring(0, usedBefore.indexOf(" "));
+        System.out.println("usedBefore = " + usedBefore);
         System.out.println("usedAfter = " + usedAfter);
+        BrowserUtil.waitFor(1);
+        double before = Double.parseDouble(usedBefore);
+        double after = Double.parseDouble(usedAfter);
+        assertTrue(after>before);
         BrowserUtil.waitFor(3);
-
-        assertTrue(!(usedBefore.equals(usedAfter)));
-
-
         filesPage.deleteFile("Zoom Meeting 9_20_2021 2_58_22 PM.png");
-
-        BrowserUtil.waitFor(3);
+        BrowserUtil.waitFor(2);
 
 
     }
