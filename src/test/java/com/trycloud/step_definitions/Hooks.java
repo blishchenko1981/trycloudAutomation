@@ -20,7 +20,7 @@ public class Hooks {
     public void setupDriver(){
         System.out.println("THIS IS FROM @Before inside hooks class");
         // set up implicit wait
-        Driver.getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS) ;
+        Driver.getDriver().manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS) ;
         Driver.getDriver().manage().window().maximize();
     }
 

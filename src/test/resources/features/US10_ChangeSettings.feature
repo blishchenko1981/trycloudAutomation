@@ -4,6 +4,7 @@ Feature: 10.Story: As a user, I should be able to access to Files module.
 
   Background:
     Given user on the login page
+
   @vit3
   Scenario Outline: verify users can change the app Settings
 
@@ -16,9 +17,25 @@ Feature: 10.Story: As a user, I should be able to access to Files module.
     Examples:
       | username | password    |
       | user7    | Userpass123 |
-      | user34   | Userpass123 |
-      | user99   | Userpass123 |
+      | user37   | Userpass123 |
+      | user67   | Userpass123 |
+      | user97   | Userpass123 |
 
+
+  Scenario Outline: verify users see the app storage usage
+
+    When user use username "<username>" and password "<password>"
+    And user click login button
+    When Check the current storage usage
+    When Upload a file
+    And Refresh the page
+    Then Verify the storage usage is increased.
+
+    Examples:
+      | username | password    |
+      | user7    | Userpass123 |
+     # | user34   | Userpass123 |
+    #  | user99   | Userpass123 |
 
 
 
