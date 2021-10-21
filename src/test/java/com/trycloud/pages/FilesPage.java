@@ -8,7 +8,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+
+import java.util.List;
+
 import static org.junit.Assert.assertTrue;
+
 
 public class FilesPage {
 
@@ -19,12 +23,18 @@ public class FilesPage {
     @FindBy(xpath = "//span[.='Delete file']")
     public WebElement deleteFile;
 
-
     @FindBy(xpath = "//a[.='Deleted files']")
     public WebElement deletedFiles;
 
     @FindBy(xpath = "//tr[@data-file='Selenium_methods.pdf']//span[.='Selenium_methods']")
     public WebElement fileForDelete;
+
+
+    @FindBy(xpath = "//label[@for='select_all_files']")
+    public WebElement checkAllBoxes;
+
+    @FindBy(xpath = "//input[@class='selectCheckBox checkbox']")
+    public List<WebElement> selectedBoxes;
 
     @FindBy(xpath = "//span[@class = 'icon icon-add']")
     public WebElement addFile;
@@ -46,6 +56,7 @@ public class FilesPage {
 
     @FindBy(xpath = "//label[@for='showRichWorkspacesToggle']")
     public WebElement showRichWorkspaces;
+
 
     @FindBy(xpath = "//label[@for='showhiddenfilesToggle']")
     public WebElement showHidden;

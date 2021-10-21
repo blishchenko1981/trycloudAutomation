@@ -3,6 +3,7 @@ package com.trycloud.pages;
 import com.trycloud.utilities.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -49,6 +50,15 @@ public class CommonArea {
     public void clickModule(String moduleName){
         WebElement modules = Driver.getDriver().findElement(By.xpath("(//a[@aria-label = '"+moduleName+"'])[1]"));
         modules.click();
+    }
+    public void navigateToTab(String tabName){
+
+
+        WebElement ModuleName =Driver.getDriver().findElement(By.
+                xpath("//ul//li//a//span[normalize-space(.)='"+tabName+"']"));
+
+        Actions action =new Actions(Driver.getDriver()) ;
+        action.moveToElement(ModuleName).doubleClick().perform();
     }
 
 }
