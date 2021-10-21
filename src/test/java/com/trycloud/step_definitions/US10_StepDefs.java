@@ -60,11 +60,14 @@ public class US10_StepDefs {
         filesPage.verifyStorageUsageIncreased();
 
         BrowserUtil.waitFor(3);
-        filesPage.deleteFile("Zoom Meeting 9_20_2021 2_58_22 PM.png");
-        BrowserUtil.waitFor(2);
 
 
     }
 
 
+    @And("Delete file {string}")
+    public void deleteFile(String nameOFFile) {
+        filesPage.deleteFile(nameOFFile);
+        BrowserUtil.waitFor(2);
+    }
 }

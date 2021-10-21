@@ -1,5 +1,5 @@
 
-@vit
+@vit10
 Feature: 10.Story: As a user, I should be able to access to Files module.
   AC #1 - verify users can change the app Settings.
   AC #2- verify users see the app storage usage
@@ -29,9 +29,11 @@ Feature: 10.Story: As a user, I should be able to access to Files module.
     When user use username "<username>" and password "<password>"
     And user click login button
     When Check the current storage usage
-    When Upload a file "C:\\Users\\Vitalii\\Desktop\\Zoom Meeting 9_20_2021 2_58_22 PM.png"
+    When Upload a file "C:\\Users\\Vitalii\\Desktop\\TestFile.png"
     And Refresh the page
     Then Verify the storage usage is increased.
+    And Delete file "TestFile.png"
+
 
     Examples:
       | username | password    |
