@@ -5,6 +5,7 @@ import com.trycloud.pages.DeletedPage;
 import com.trycloud.pages.FilesPage;
 import com.trycloud.utilities.BrowserUtil;
 import com.trycloud.utilities.Driver;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.cucumber.java.hu.De;
@@ -54,6 +55,5 @@ public class US07_StepDefs {
             deletedPage.restore.click();
             BrowserUtil.waitFor(1);
         }
-
     }
 }

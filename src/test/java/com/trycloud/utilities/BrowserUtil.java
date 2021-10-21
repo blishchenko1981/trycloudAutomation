@@ -77,4 +77,21 @@ public class BrowserUtil {
         }
         return allTextLst;
     }
+
+    public static boolean AllBoxesSelected(List<WebElement> allCheckBoxes){
+
+        boolean checkBoxes = true;
+
+        for (WebElement checkbox : allCheckBoxes)  {
+
+            if (!checkbox.isSelected()) {
+                checkBoxes = false;
+                break;
+            }
+        }
+        return checkBoxes;
+    }
+
+
+
 }
