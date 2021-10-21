@@ -35,3 +35,4 @@ Feature: As a user, I should be able to access to Files module
 #5. Click the submit button to post it
 #6. Verify the comment is displayed in the comment section.
 #(Pre-condition: there should be at least 1 file/foler is uploaded inside files page)
+
