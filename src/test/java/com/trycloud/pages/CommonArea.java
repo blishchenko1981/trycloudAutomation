@@ -53,14 +53,5 @@ public class CommonArea {
         WebElement modules = Driver.getDriver().findElement(By.xpath("(//a[@aria-label = '"+moduleName+"'])[1]"));
         modules.click();
     }
-    public void navigateToTab(String tabName){
-
-
-        WebElement ModuleName =Driver.getDriver().findElement(By.
-                xpath("//ul//li//a//span[normalize-space(.)='"+tabName+"']"));
-
-        Actions action =new Actions(Driver.getDriver()) ;
-        action.moveToElement(ModuleName).doubleClick().perform();
-    }
 
 }

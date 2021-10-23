@@ -10,8 +10,6 @@ Feature: make access to Files module
     When user clicks on Files module
     Then verify the page title is "Files - Trycloud"
 
-
-
     Examples:
       | username | password    |
       | user7    | Userpass123 |
@@ -25,7 +23,6 @@ Feature: make access to Files module
     When user clicks on Files module
     And  click the top left checkbox of the table
     Then verify all the files are selected
-
     Examples:
       | username | password    |
       | user7    | Userpass123 |
