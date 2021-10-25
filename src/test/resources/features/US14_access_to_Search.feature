@@ -1,4 +1,4 @@
-@vit
+@vit @smoke
 Feature: access to search any item
   14.Story: As a user, I should be able to access search any item/ users from the homepage.
 

@@ -12,7 +12,7 @@ Feature: Access to Files module
 
   Background:
     Given user on the login page
-
+@smoke
   Scenario Outline: user should be able to access Files module
 
     When  user use username "<username>" and password "<password>"
